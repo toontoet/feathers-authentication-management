@@ -55,7 +55,8 @@
     ]
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "src": "src"
   },
   "dependencies": {
     "@feathersjs/authentication-local": "^1.0.4",
