@@ -11,6 +11,7 @@ const sendResetPwd = require('./sendResetPwd');
 const { resetPwdWithLongToken, resetPwdWithShortToken } = require('./resetPassword');
 const passwordChange = require('./passwordChange');
 const identityChange = require('./identityChange');
+const { verifyInviteWithLongToken, verifyInviteWithShortToken } = require('./verifyInviteSetPwd');
 
 const { sanitizeUserForClient } = require('./helpers');
 
@@ -67,6 +68,11 @@ function authManagement (options, app) { // 'function' needed as we use 'this'
         case 'identityChange':
           return identityChange(
             options, data.value.user, data.value.password, data.value.changes);
+        case 'verifyInviteLong':
+          return verifyInviteWithLongToken(options, data.value.token, data.value.password);
+        case 'verifyInviteShort':
+          return verifyInviteWithShortToken(
+            options, data.value.token, data.value.user, data.value.password);
         case 'options':
           return Promise.resolve(options);
         default:
