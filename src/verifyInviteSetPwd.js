@@ -67,6 +67,7 @@ function verifyInviteSetPwd (options, query, tokens , password) {
     { password: hashPassword },
     {
       isVerified,
+      consentTerms: new Date(),
       verifyToken: null,
       verifyShortToken: null,
       verifyExpires: null,
